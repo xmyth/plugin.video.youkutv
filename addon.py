@@ -2317,8 +2317,9 @@ try:
         openWindow('mysettings')
 except:
     if __name__ == '__main__':
+        import time
         cj = cookielib.CookieJar()
         opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
-        opener.addheaders = [('Cookie','r=WTF')]
+        opener.addheaders = [('Cookie','__ysuid={}'.format(time.time()))]
         urllib2.install_opener(opener)
         openWindow('main')
